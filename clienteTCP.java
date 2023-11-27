@@ -10,7 +10,7 @@ public class clienteTCP {
     public static void main(String[] args) {
         try {
             // Crear un socket para conectarse al servidor
-            Socket socketCliente = new Socket("172.31.118.82", 3000);
+            Socket socketCliente = new Socket("172.31.118.83", 3000);
             String mensaje;
 
             do {
