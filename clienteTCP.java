@@ -10,30 +10,36 @@ public class clienteTCP {
     public static void main(String[] args) {
         try {
             // Crear un socket para conectarse al servidor
-            // Socket socket_cliente = new Socket("localhost", 3000);
-            Socket socket_cliente = new Socket("172.31.118.83", 3000);
+            Socket socketCliente = new Socket("172.31.118.82", 3000);
+            String mensaje;
 
-            while (true) {
+            do {
                 Scanner scanner = new Scanner(System.in);
                 System.out.print("Ingrese el mensaje para el servidor: ");
 
-                BufferedReader entrada = new BufferedReader(new InputStreamReader(socket_cliente.getInputStream()));
-                PrintWriter salida = new PrintWriter(socket_cliente.getOutputStream(), true);
+                BufferedReader entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
+                PrintWriter salida = new PrintWriter(socketCliente.getOutputStream(), true);
 
-                // Enviar datos al cliente
-                String mensaje = scanner.nextLine();
+                // Enviar datos al servidor
+                mensaje = scanner.nextLine();
                 salida.println(mensaje);
 
-                // Leer datps reconodos desde el cliente
-                String datos_recibidos = entrada.readLine();
-                System.out.println("Mensaje recibido: " + datos_recibidos);
-            }
-            // Crear buffer para recibir y enviar datos al cliente
+                // Salir del bucle si el mensaje es "chao"
+                if (mensaje.equals("chao")) {
+                    break;
+                }
+
+                // Leer datos recibidos desde el servidor
+                String datosRecibidos = entrada.readLine();
+                System.out.println("Mensaje recibido: " + datosRecibidos);
+
+            } while (true); // El bucle se ejecuta siempre, pero se sale si el mensaje es "chao"
+
+            // Cerrar la conexión
+            socketCliente.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }
