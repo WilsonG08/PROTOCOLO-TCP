@@ -27,7 +27,7 @@ public class hiloCliente  extends Thread{
             System.out.print("Ingrese el mansaje para el cliente: ");
             String mensaje =scanner.nextLine();
 
-            // Enviar datos al cliente
+            // Enviar datos al clientee
             salida.println(mensaje);
         }
         } catch (IOException e) {

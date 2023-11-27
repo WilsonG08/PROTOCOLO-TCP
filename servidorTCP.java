@@ -17,7 +17,7 @@ public class servidorTCP {
                 Socket socket_cliente = socket_servidor.accept();
                 System.out.println("Cliente conectado: "+ socket_cliente.getInetAddress().getHostAddress());
 
-                // Crear un hilo para manejar la conexion con el cliente
+                // Crear un hilo para manejar la conexion con el clientee
                 hiloCliente hilo = new hiloCliente(socket_cliente);
                 hilo.start();
             }

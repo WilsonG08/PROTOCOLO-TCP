@@ -9,7 +9,7 @@ public class clienteTCP {
 
     public static void main(String[] args) {
         try {
-            // Crear un socjet para conectarse al servidor
+            // Crear un socket para conectarse al servidor
             // Socket socket_cliente = new Socket("localhost", 3000);
             Socket socket_cliente = new Socket("172.31.118.83", 3000);
 
